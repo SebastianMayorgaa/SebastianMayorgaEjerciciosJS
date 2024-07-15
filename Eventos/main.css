@@ -1,0 +1,86 @@
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;  
+}
+
+header{
+    height: 10vh;
+}
+
+main{
+    height: 90vh;
+    width: 100%;
+}
+
+.contenedor {
+    background: rgba(169, 181, 143, 0.61);
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.829);
+    text-align: center;  
+}
+
+label {
+    display: block;
+    margin: 10px 0 5px;
+}
+
+input {
+    padding: 10px;
+    width: 90%;
+    margin-bottom: 10px;
+    text-align: center;
+    background-color: #f4f4f496;
+}
+#conversion{
+    margin-top: 2remh;
+}
+
+#boton{
+    margin-top: 1rem;
+}
+
+#resultado {
+    margin-top: 20px;
+    font-size: 1rem;
+}
+
+.contenedor2 {
+    background: rgba(169, 181, 143, 0.61);
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.829);
+    width: 90%;;
+    margin-bottom: 2rem;
+}
+#filtros{
+    margin-bottom: 2rem
+}
+#notas{
+    width: 60%;
+}
+#card-container{
+    background: rgba(169, 181, 143, 0.61);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.829);
+    margin-bottom: 1rem;
+    width: 88%;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.card{
+    display: flex;
+    flex-wrap: wrap;
+    background: rgba(169, 181, 143, 0.61);
+    width: 11rem;
+    
+}
+
+#botones{
+    display: flex;
+    flex-direction: column;
+    width: 35%;
+    justify-content: center;
+    flex-wrap: wrap;
+    align-content: end;
+}
