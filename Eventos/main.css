@@ -34,7 +34,7 @@ input {
     background-color: #f4f4f496;
 }
 #conversion{
-    margin-top: 2remh;
+    margin-top: 2rem;
 }
 
 #boton{
@@ -46,6 +46,8 @@ input {
     font-size: 1rem;
 }
 
+/* NOTAS */
+
 .contenedor2 {
     background: rgba(169, 181, 143, 0.61);
     padding: 20px;
@@ -55,7 +57,11 @@ input {
     margin-bottom: 2rem;
 }
 #filtros{
-    margin-bottom: 2rem
+    width: 90%;
+    margin-bottom: 2rem;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
 }
 #notas{
     width: 60%;
@@ -65,17 +71,16 @@ input {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.829);
     margin-bottom: 1rem;
     width: 88%;
-    flex-wrap: wrap;
     justify-content: center;
+    flex-wrap: wrap;
 }
 .card{
     display: flex;
     flex-wrap: wrap;
     background: rgba(169, 181, 143, 0.61);
-    width: 11rem;
-    
+    width: 15rem;
+    margin: 1rem;   
 }
-
 #botones{
     display: flex;
     flex-direction: column;
