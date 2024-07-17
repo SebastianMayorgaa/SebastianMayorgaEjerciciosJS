@@ -81,6 +81,7 @@ input {
     width: 15rem;
     margin: 1rem;   
 }
+
 #botones{
     display: flex;
     flex-direction: column;

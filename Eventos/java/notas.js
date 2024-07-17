@@ -21,7 +21,7 @@ function pintarTarjetas(notas) {
         <div class="card-body">
         <input class="form-check-input" type="checkbox" onclick="marcarRealizada(${nota.id})"  ${nota.realizada ? "checked" : ""} value="">
         <h5 id="titulo" class="card-title">${nota.titulo}</h5>
-        <p id="texto" class="card-text">${nota.texto}</p>
+        <p id="texto" class="card-text ${nota.realizada ? 'text-decoration-line-through':''}">${nota.texto}</p>
         <br>
         <button id="borrarNota" type="button" class="btn btn-outline-danger" onclick="borrarNota(${nota.id})">Borrar nota</button>
         </div>
@@ -60,37 +60,39 @@ function borrarNota(id) {
     pintarTarjetas(notas);
 }
 
-
-function filtros() {
-    let buscarTexto = document.getElementById('buscar').value;
-    let notaRealizada = document.getElementById('notaRealizada').checked;
-
-    let notasFiltradas = filtroTexto(notas, buscarTexto, notaRealizada);
-    pintarTarjetas(notasFiltradas);
-}
-
-function marcarRealizada(id) {
+function marcarRealizada(id,) {
     let nota = notas.find(nota => nota.id === id)
+    
     if (nota) {
         nota.realizada = !nota.realizada
         pintarTarjetas(notas)
     }
 }
-function filtroTexto(notas, buscarTexto, notaRealizada) {
-    return notas.filter(nota => {
-        let hayTitulo = nota.titulo.toLowerCase().includes(buscarTexto);
-        let hayTexto = nota.texto.toLowerCase().includes(buscarTexto);
-        let esRealizada = nota.realizada == notaRealizada;
 
-        return (hayTitulo || hayTexto) && esRealizada;
-    });
-}
+function filtrarPorTexto(notas, buscarTexto) {
+    if (!buscarTexto) return notas;
+    return notas.filter(nota => nota.titulo.toLowerCase().includes(buscarTexto.toLowerCase()) || nota.texto.toLowerCase().includes(buscarTexto.toLowerCase()));
+  }
+  
+  function filtrarPorRealizadas(notas, notaRealizada) {
+    if (!notaRealizada) return notas;
+    return notas.filter(nota => nota.realizada === notaRealizada);
+  }
+  
+  function filtros() {
+    let buscarTexto = document.getElementById('buscar').value.toLowerCase();
+    let notaRealizada = document.getElementById('notaRealizada').checked;
+  
+    let notasFiltradas = filtrarPorTexto(notas, buscarTexto);
+    notasFiltradas = filtrarPorRealizadas(notasFiltradas, notaRealizada);
+  
+    pintarTarjetas(notasFiltradas);
+  }
 
-
-document.getElementById('buscar').addEventListener('keyup', filtros)
-pintarTarjetas(notas)
-document.getElementById('notaRealizada').addEventListener('click', filtros)
-pintarTarjetas(notas);
+  document.getElementById('buscar').addEventListener('keyup', filtros);
+document.getElementById('notaRealizada').addEventListener('click', filtros);
+  
+  pintarTarjetas(notas);
 
 
 
